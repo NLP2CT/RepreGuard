@@ -24,8 +24,11 @@ This repository provides the official implementation of **RepreGuard**, a robust
 - **[2025.08.01]** 🎉 Our paper is accepted by *Transactions of the Association for Computational Linguistics (TACL 2025)*!
 
 ---
+## 🧐 Motivation 
+<img src="image/Neural_Activity.png" width="1000px">
+We observed that the hidden representation patterns of the two types of texts show distinct differences, which serve as higher-dimensional features and strong signals for detecting LGT.  
 
-## 🧐 Overview
+## 🎯 Overview
 
 <img src="image/RepreGuard.png" width="1000px">
 
@@ -54,6 +57,18 @@ unzip datasets.zip
 conda create -n repre_guard python==3.10
 conda activate repre_guard
 pip install -r requirements.txt
+```
+
+### Representation Analysis
+
+```bash
+python3 vis/repre_vis.py \
+  --model_path meta-llama/Llama-2-7b-hf \
+  --data_path datasets/detectrl_dataset/main_dataset/detectrl_train_dataset_llm_type_mix_llms_interleaved.json \
+  --sample_size 1000 \
+  --truncate_len 210 \
+  --batch_size 1 \
+  --save_plot_name Neural_Activity.pdf
 ```
 
 ### Running RepreGuard
@@ -96,12 +111,22 @@ Please see paper for more detail result.
 If you find our paper/code useful, please cite us and give your ⭐!
 
 ```bibtex
-@article{chen2025repreguard,
-  author       = {Xin Chen, Junchao Wu, Shu Yang, Runzhe Zhan, Zeyu Wu, Ziyang Luo, Di Wang, Min Yang, Lidia S. Chao and Derek F. Wong},
-  title        = {RepreGuard: Detecting LLM-Generated Text by Revealing Hidden Representation Patterns},
-  journal      = {Transactions of the Association for Computational Linguistics},
-  year         = {2025},
-  url          = {https://arxiv.org/abs/2508.13152},
-  note         = {Accepted at TACL 2025}
+@article{10.1162/TACL.a.61,
+    author = {Chen, Xin and Wu, Junchao and Yang, Shu and Zhan, Runzhe and Wu, Zeyu and Luo, Ziyang and Wang, Di and Yang, Min and Chao, Lidia S. and Wong, Derek F.},
+    title = {RepreGuard: Detecting LLM-Generated Text by Revealing Hidden
+                    Representation Patterns},
+    journal = {Transactions of the Association for Computational Linguistics},
+    volume = {13},
+    pages = {1812-1831},
+    year = {2025},
+    month = {12},
+    issn = {2307-387X},
+    doi = {10.1162/TACL.a.61},
+    url = {https://doi.org/10.1162/TACL.a.61},
+    eprint = {https://direct.mit.edu/tacl/article-pdf/doi/10.1162/TACL.a.61/2571486/tacl.a.61.pdf},
 }
+
+
+
+
 ```
